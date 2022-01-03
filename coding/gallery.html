@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+div.scrollmenu {
+  background-color: rgba(5, 48, 49, 0.3);
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 17px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: rgba(148, 44, 105, 0.3);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid rgb(10, 82, 78);
+}
+
+body {
+ 	background-image: url('images/gallery.jpg');
+	background-attachment:fixed;
+  background-position: center;
+  background-size: 100% 100%;
+  
+  display: block;
+}
+* {
+  box-sizing: border-box;
+}
+
+body { 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  text-align: center;
+  padding: 10px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE 10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE 10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+/* Create two equal columns that sits next to each other */
+.column {
+  -ms-flex: 50%; /* IE 10 */
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+.btn:hover {
+  background-color: rgb(151, 197, 235);
+}
+
+.btn.active {
+  background-color: rgb(247, 158, 188);
+  color: white;
+}
+</style>
+</head>
+<body>
+  <center>
+    <div class="scrollmenu">
+     <a href="index.html">Homepage</a>
+     <a href="biodata.html">Biodata</a>
+     <a href="experience.html">Experience</a>
+     <a href="education.html">Education</a>
+     <a href="family.html">Family</a>
+     <a href="gallery.html">Gallery</a>
+     <a href="contact.html">Contact</a>
+   </div>
+  </center>
+
+<h1 style="font-family:'Georgia', serif; font-size:80px;text-align:center;">MY GALLERY</h1>
+
+<!-- Header -->
+<div class="header" id="myHeader">
+  <h3>The gallery below shows photos of me, my family and friends at school and in college. 
+      Every picture in this gallery gives meaning and sweet memories that I will never forget. 
+      These pictures are some that I keep as memories for the sake of giving memories for my future. 
+      I really love my family and friends who are always there and give me encouragement and support.</h3>
+
+<!-- Header -->
+<div class="header" id="myHeader">
+    <p>Click on the buttons</p>
+    <button class="btn active" onclick="two()">2</button>
+    <button class="btn" onclick="four()">4</button>
+  </div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+    <img src="images/gallery 5.JPG" style="width:100%">
+    <img src="images/gallery 7.JPG" style="width:100%">
+    <img src="images/gallery 23.JPG" style="width:100%">
+    <img src="images/gallery 9.PNG" style="width:100%">
+    <img src="images/gallery 18.JPG" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/gallery 8.JPG" style="width:100%">
+    <img src="images/gallery 1.JPG" style="width:100%">
+    <img src="images/gallery 13.JPG" style="width:100%">
+    <img src="images/gallery 17.JPG" style="width:100%">
+    <img src="images/gallery 20.JPG" style="width:100%">
+  </div>  
+  <div class="column">
+    <img src="images/gallery 16.JPG" style="width:100%">
+    <img src="images/gallery 6.JPG" style="width:100%">
+    <img src="images/gallery 15.JPG" style="width:100%">
+    <img src="images/gallery 21.PNG" style="width:100%">
+    <img src="images/gallery 12.JPG" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/gallery 10.PNG" style="width:100%">
+    <img src="images/gallery 4.JPG" style="width:100%">
+    <img src="images/gallery 14.JPG" style="width:100%">
+    <img src="images/gallery 11.JPG" style="width:100%">
+    <img src="images/gallery 2.PNG" style="width:100%">
+    <img src="images/gallery 22.PNG" style="width:100%">
+  </div>
+</div>
+
+<script>
+// Get the elements with class="column"
+var elements = document.getElementsByClassName("column");
+
+// Declare a loop variable
+var i;
+
+// Full-width images
+function one() {
+    for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "100%";  // IE10
+    elements[i].style.flex = "100%";
+  }
+}
+
+// Two images side by side
+function two() {
+  for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "50%";  // IE10
+    elements[i].style.flex = "50%";
+  }
+}
+
+// Four images side by side
+function four() {
+  for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "25%";  // IE10
+    elements[i].style.flex = "25%";
+  }
+}
+
+// Add active class to the current button (highlight it)
+var header = document.getElementById("myHeader");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+</body>
+</html>
